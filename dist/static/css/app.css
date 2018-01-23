@@ -1,0 +1,13 @@
+/*风险评估*/
+.ais-count{border: 1px solid #ddd;   width: 80px!important;border-radius:8px;}
+
+
+/*按钮*/
+.bt-js{border: 1px solid #DDDDDD;width: 90px;height: 20px; line-height: 10px; border-radius: 10px;}
+
+/*数值框*/
+.input-k{border: solid 1px #ddd; width: 80px; height: 30px; line-height: 30px;text-align: center;margin-top: -5px;}
+.input-g{border: solid 1px #ddd; width: 60px;height: 30px; line-height: 30px; text-align: center; margin-top: -5px; margin-left: 5px;}
+
+/**/
+.margins-top-rem{margin-top: 0.58rem!important;}
