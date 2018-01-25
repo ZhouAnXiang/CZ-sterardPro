@@ -1,9 +1,7 @@
-var webpack =require('webpack')
 var path = require('path')
 var utils = require('./utils')
 var config = require('../config')
 var vueLoaderConfig = require('./vue-loader.conf')
-var ExtractTextPlugin = require('extract-text-webpack-plugin')
 const vuxLoader = require('vux-loader')
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
@@ -25,7 +23,6 @@ var webpackConfig = {
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
-      'jquery':'jquery'
     }
   },
   externals: {
@@ -43,23 +40,10 @@ var webpackConfig = {
         loader: 'babel-loader',
         include: [resolve('src'), resolve('test')]
       },
-      // {
-      //   test: /\.css$/,
-      //   loader: 'style-loader!css-loader!less-loader',
-      // },
       {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract({
-            fallback: 'style-loader', 
-            use: ['css-loader']
-        })
-    }, {
-        test: /\.less$/,
-        loader: ExtractTextPlugin.extract({
-            fallback: 'style-loader', 
-            use: ['css-loader', 'less-loader']
-        })
-    },
+        loader: 'style-loader!css-loader!less-loader',
+      },
       {
         test: /vue-preview.src.*?js$/,
         loader: 'babel'
@@ -86,11 +70,6 @@ var webpackConfig = {
 module.exports = vuxLoader.merge(webpackConfig, {
   options: {},
   plugins: [{
-    name: 'vux-ui',
-    // new webpack.optimize.CommonsChunkPlugin('common.js'),
-    // new webpack.ProvidePlugin({
-    //     jQuery: "jquery",
-    //     $: "jquery"
-    // })
+    name: 'vux-ui'
   }]
 })
