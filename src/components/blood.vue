@@ -57,7 +57,7 @@
 			</div>
 			<div class="margins-top-sm">
 			<p>	参考文献：</p>
- <p>1.《2010中国缺血性脑卒中和短暂性脑缺血发作二级预防指南》。</p>
+ <p>1.《2014中国缺血性脑卒中和短暂性脑缺血发作二级预防指南》。</p>
  <p>2.Clopidogrel with Aspirin in Acute Minor Stroke or Transient Ischemic Attack.N Engl JMed.2013 Jul 4;369(1):11-9.</p>
 			</div>
 		</div>

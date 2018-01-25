@@ -39,8 +39,13 @@ import abcd_Pattern from '@/components/abcd_Pattern.vue'
 import shads_Pattern from '@/components/shads_Pattern.vue'
 import vasc_Pattern from '@/components/vasc_Pattern.vue'
 import test from '@/components/test.vue'
-
-
+import report from '@/components/outreport/report'
+import discharged_roport from '@/components/outreport/discharged_roport'
+import Swallow from '@/components/outreport/Swallow'
+import cerebral from '@/components/outreport/treatReport/cerebral'
+import embolectomy from '@/components/outreport/treatReport/embolectomy'
+import thrombolysis from '@/components/outreport/treatReport/thrombolysis'
+import antithrombosis from '@/components/outreport/treatReport/antithrombosis'
 
 Vue.use(Router)
 
@@ -202,6 +207,34 @@ export default new Router({
     {
     	 path: '/test',
     	 component: test
+	},
+	{
+		path:'/outreport/report',
+		component:report
+	},
+	{
+		path:'/outreport/discharged_roport',
+		component:discharged_roport
+	},
+	{
+		path:'/outreport/Swallow',
+		component:Swallow
+	},
+	{
+		path:'/outreport/treatReport/cerebral',
+		component:cerebral
+	},
+	{
+		path:'/outreport/treatReport/embolectomy',
+		component:embolectomy
+	},
+	{
+		path:'/outreport/treatReport/thrombolysis',
+		component:thrombolysis
+	},
+	{
+		path:'/outreport/treatReport/antithrombosis',
+		component:antithrombosis
 	}
   ]
 })

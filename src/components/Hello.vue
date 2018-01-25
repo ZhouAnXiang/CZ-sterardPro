@@ -3,7 +3,7 @@
     <h1>{{ msg }}</h1>
     <span><router-link to="/risk_Assessment">跳转</router-link></span>
     <span><router-link to="/scale_list">量表</router-link></span>
-    <span><router-link to="/staf_Pattern">11</router-link></span>
+    <span><router-link to="/outreport/report">报告</router-link></span>
     <span><router-link to="/test">111</router-link></span>
   </div>
 </template>

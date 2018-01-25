@@ -3,16 +3,17 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
-import { AlertPlugin, ToastPlugin } from 'vux'
+import { AlertPlugin, ToastPlugin} from 'vux'
 import VueRouter from "vue-router"
-import VueResource from 'vue-resource'
+import axios from 'axios'
+axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+Vue.prototype.$http = axios
 
-Vue.use(VueResource)
 Vue.use(VueRouter)
-
 Vue.use(AlertPlugin)
 Vue.use(ToastPlugin)
 Vue.config.productionTip = false
+
 
 /* eslint-disable no-new */
 new Vue({

@@ -238,7 +238,7 @@
 					series: [
 
 						{
-							name: '收入',
+							name: '',
 							type: 'bar',
 							stack: '总量',
 							label: {

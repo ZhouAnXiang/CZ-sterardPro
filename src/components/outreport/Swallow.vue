@@ -1,6 +1,5 @@
 <template>
 	<div>
-		<x-header>洼田饮水试验</x-header>
 		<div class="margins-horizontal-x margins-bottom-sm margins-top-rem">
 			<div class="margins-top-md text-center">患者端坐，喝下30毫升温开水，观察所需时间呛咳情况。</div>
 			<div class="margins-top-xs">
@@ -38,17 +37,16 @@
 				<x-table full-bordered style="background-color:#fff;">
 					<tbody>
 						<tr>
-							<td>1级，5秒之内</td>
-							<td>正常</td>
+							<td >1级，5秒之内</td>
+							<td >正常&nbsp;&nbsp;<input type="radio" name="waterTime" value="1"></td>
 						</tr>
 						<tr>
-							<td>
-								<1级，5秒以上或2级</td>
-									<td>可疑</td>
+							<td>1级，5秒以上或2级</td>
+							<td>可疑&nbsp;&nbsp;<input type="radio" name="waterTime" value="2"></td>
 						</tr>
 						<tr>
 							<td>3～5级</td>
-							<td>异常</td>
+							<td>异常&nbsp;&nbsp;<input type="radio" name="waterTime" value="3"></td>
 						</tr>
 					</tbody>
 				</x-table>
@@ -56,20 +54,21 @@
 				<x-table full-bordered style="background-color:#fff;">
 					<tbody>
 						<tr>
-							<td>吞咽障碍消失，饮水试验评定1级</td>
-							<td>治愈</td>
+							<td colspan="2">吞咽障碍消失，饮水试验评定1级</td>
+							<td colspan="1">治愈&nbsp;<input type="radio" name="waterLevel" value="1"></td>
 						</tr>
-						<tr>
-							<td>吞咽障碍明显改善，饮水试验评定2级</td>
-							<td>有效</td>
+						<tr >
+							<td colspan="2">吞咽障碍明显改善，饮水试验评定2级</td>
+							<td colspan="1">有效&nbsp;<input type="radio" name="waterLevel" value="2"></td>
 						</tr>
-						<tr>
-							<td>吞咽障碍改善不显著，饮水试验评定>=3级</td>
-							<td>异常</td>
+						<tr >
+							<td colspan="2">吞咽障碍改善不显著，饮水试验评定>=3级</td>
+							<td colspan="1">异常&nbsp;<input type="radio" name="waterLevel" value="3"></td>
 						</tr>
 					</tbody>
 				</x-table>
 			</div>
+			<div class="margins-top-xs text-center"><button v-bind:style="{'border':'0', 'background-color':'rgba(22, 155, 213, 1)','color':'#fff','width':'1rem','border-radius':'8px','line-height':'22px',}">保存结果</button></div>
 			<div class="margins-top-sm paddings-x bg-ddd">
 				注释： 1.该量表由日本洼田俊夫提出，分级明确清楚，操作简单，利于选择有治疗适应证的患者。但要求患者意识清楚并能够按照指令完成试验。 2.该量表仅反映了对液体误吸的程度，不能全面反映各种食物的误吸情况，结果判定一定程度上依赖于患者主观感受，评估准确性不是很高（达60%以上）。
 			</div>
@@ -78,13 +77,13 @@
 </template>
 
 <script>
-	import { XHeader, XTable, LoadMore } from 'vux'
+	import { XHeader, XTable, LoadMore,ButtonTab } from 'vux'
 
 	export default {
 		components: {
 			XHeader,
 			XTable,
-			LoadMore
+			LoadMore,
 
 		},
 		data() {

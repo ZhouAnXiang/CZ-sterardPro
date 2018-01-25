@@ -106,4 +106,7 @@
 		top:0;
 	   background-color: #0F71B2!important;
 	}
+	@import '../../static/css/global.css';
+	@import '../../static/css/app.css';
+	@import '../../static/css/iconfont.css';
 </style>
