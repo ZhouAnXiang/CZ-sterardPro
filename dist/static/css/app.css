@@ -7,7 +7,9 @@
 
 /*数值框*/
 .input-k{border: solid 1px #ddd; width: 80px; height: 30px; line-height: 30px;text-align: center;margin-top: -5px;}
-.input-g{border: solid 1px #ddd; width: 60px;height: 30px; line-height: 30px; text-align: center; margin-top: -5px; margin-left: 5px;}
 
 /**/
 .margins-top-rem{margin-top: 0.58rem!important;}
+
+a{text-decoration:none;}
+ul{margin-top: 48px;}

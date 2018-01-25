@@ -1,0 +1,37 @@
+/* 公共 */
+.fr{float: right;}
+.fl{float: left;}
+.report-ul{margin-top:0.2rem}
+.report-title{margin-top: 0.2rem}
+/*  */
+/* .discharg-report{margin-top: 3rem;} */
+.text-right{float: right;margin-bottom: 0.14rem;}
+.report_header_color{background-color: #20a0ff;}
+.report-news{width: 2rem;line-height: 2rem;}
+.report-details{margin-left: 1rem;}
+.Bar,
+.Bars {
+    position: relative;
+    /* width:4.5rem; */
+    margin-top: 0.1rem;
+    background: #ccc;
+    padding: 1px;
+}
+.Bar div,
+.Bars div {
+    display: block;
+    position: relative;
+    background: #00F;
+    color: #333333;
+    height: 20px;
+    line-height: 20px;
+}
+.Bar div span,
+.Bars div span {
+    position: absolute;
+    /* width: 4.5rem; */
+    text-align: center;
+    font-weight: bold;
+}
+.report-cerebral{width:20%;}
+.report-cerebral-right{display: block;}
