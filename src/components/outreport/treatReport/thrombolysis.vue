@@ -14,16 +14,16 @@
 					</thead>
 					<tbody>
 						<tr>
-							<td>{{ patient_info.name }}</td>
-							<td>{{ patient_info.sex }}</td>
-                            <td>{{ patient_info.age }}</td>
-                            <td>{{ patient_info.onset_time }}</td>
+							<td>{{ arr.patient_info.name }}</td>
+							<td>{{ arr.patient_info.sex }}</td>
+                            <td>{{ arr.patient_info.age }}</td>
+                            <td>{{ arr.patient_info.onset_time }}</td>
                             <td>本报告仅限于本院内部交流使用</td>
 						</tr>
 					</tbody>
 				</x-table>
 			</div>
-            <div class="margins-top-xs text-left"style='font-size: 16px;font-weight: bold;'>患者概况</div>
+            <div class="margins-top-xs text-left" style='font-size: 16px;font-weight: bold;'>患者概况</div>
 			<hr class='t3X' style='margin-top:1px;height: 1px;width: 100%;background:#000;'/> 
 			<div class="margins-top-sm">
 				<x-table full-bordered style="background-color:#fff;">
@@ -63,7 +63,7 @@
                     </thead>
                 </x-table>
             </div>
-            <div class="margins-top-xs text-left"style='font-size: 16px;font-weight: bold;'>治疗方案</div>
+            <div class="margins-top-xs text-left" style='font-size: 16px;font-weight: bold;'>治疗方案</div>
 			<hr class='t3X' style='margin-top:1px;height: 1px;width: 100%;background:#000;'/> 
             <div class="margins-top-sm" style="background-color:#eee;">
                 <div v-show="treat_plan.new_treat_plan ">
@@ -111,9 +111,7 @@
 		},
 		data() {
 			return {
-				msg: 'Welcome to Your Vue.js App',
                 arr:[],
-                patient_info:{},
                 general_situation:{},
                 diagnosis:{},
                 treat_plan:{}
@@ -132,7 +130,6 @@
                 .then((res)=>{
                     var response =res.data;
                     that.arr=response.data;
-                    that.patient_info=response.patient_info;
                     that.general_situation=response.data.general_situation;
                     that.diagnosis=response.data.diagnosis;
                     that.treat_plan=response.data.treat_plan;

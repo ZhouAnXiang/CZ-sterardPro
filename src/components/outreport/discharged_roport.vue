@@ -154,7 +154,6 @@
                                     </div>
                                 </div>
                                 <span class="fl">{{ riskBenefit.riskVal}}%</span>
-								<span class="fr">2.76-4.76</span><span class="fr">95%Cl&nbsp;&nbsp;</span>  
                             </th>
                         </tr>
                         <tr >
@@ -165,7 +164,6 @@
                                     </div>
                                 </div>
                                 <span class="fl">{{riskBenefit.profitVal}}%</span>
-								<span class="fr">56.82-61.83</span><span class="fr">95%Cl &nbsp;&nbsp; </span>
                             </td>
                         </tr>
                     </thead>
@@ -607,15 +605,15 @@
           }
 		},
         computed: {
+            //预后风险
             filteredGWTG: function () {
-                let GWTG= this.arr.yuhoufengxian.GWTG.riskVal;
-                let arr =GWTG.split(":");
+                let arr= this.arr.yuhoufengxian.GWTG.riskVal;
                 if(arr&&arr.length>=2){
-                    GWTG=arr[1];
+                    arr=arr;
                 }else{
-                    GWTG= 0;
+                    arr= 0;
                 }
-                return GWTG
+                return arr
             },
             filteredGWTGsectionVal: function () {
                let GWTGsectionVal= this.arr.yuhoufengxian.GWTG.sectionVal;
@@ -629,9 +627,8 @@
             },
              filteredmonth: function () {
                let month= this.arr.yuhoufengxian.iScore_month.riskVal;
-                let arr =month.split(":");
-                if(arr&&arr.length>=2){
-                    month=arr[1];
+                if(month&&month.length>=2){
+                    month=month;
                 }else{
                     month= 0;
                 }
@@ -649,9 +646,8 @@
             },
              filteredyear: function () {
                let year= this.arr.yuhoufengxian.iScore_year.riskVal;
-                let arr =year.split(":");
-                if(arr&&arr.length>=2){
-                    year=arr[1];
+                if(year&&year.length>=2){
+                    year=year;
                 }else{
                     year= 0;
                 }
@@ -669,13 +665,13 @@
             },
             filteredAPS: function () {
                let APS= this.arr.yuhoufengxian.AIS_APS.riskVal;
-                let arr =APS.split(":");
-                if(arr&&arr.length>=2){
-                    APS=arr[1];
+                if(APS&&APS.length>=2){
+                    APS=APS;
                 }else{
                     APS= 0;
                 }
-                return APS
+                return APS;
+
             },
              filteredAPSsectionVal: function () {
                let APSsectionVal= this.arr.yuhoufengxian.AIS_APS.sectionVal;
@@ -689,9 +685,8 @@
             },
              filteredGIB: function () {
                let GIB= this.arr.yuhoufengxian.AIS_GIB.riskVal;
-                let arr =GIB.split(":");
-                if(arr&&arr.length>=2){
-                    GIB=arr[1];
+                if(GIB&&GIB.length>=2){
+                    GIB=GIB;
                 }else{
                     GIB= 0;
                 }
@@ -709,9 +704,8 @@
             },
             filteredESRS: function () {
                let ESRS= this.arr.yuhoufengxian.ESRS.riskVal;
-                let arr =ESRS.split(":");
-                if(arr&&arr.length>=2){
-                    ESRS=arr[1];
+                if(ESRS&&ESRS.length>=2){
+                    ESRS=ESRS;
                 }else{
                     ESRS= 0;
                 }

@@ -100,7 +100,7 @@
             <div class="margins-top-sm">
                <x-table :cell-bordered="false" style="background-color:#fff;">
                     <thead>
-                        <tr v-show="thrombolytic_risk_benefit.risk">
+                        <tr>
                             <th style="width:20%;line-height:24px;text-align:left;">出血风险</th>
                             <th style="width:80%;">
                                 <div class="Bar">
@@ -108,10 +108,9 @@
                                     </div>
                                 </div>
                                 <span class="fl">{{ thrombolyticRisk}}%</span>
-								<span class="fr">{{policyrisksectionVal}}</span><span class="fr">95%Cl&nbsp;&nbsp;</span>  
                             </th>
                         </tr>
-                        <tr v-show="thrombolytic_risk_benefit.benefit">
+                        <tr >
                             <td style="width:20%;line-height:24px;text-align:left;">溶栓获益</td>
                             <td style="width:80%;">
                                 <div class="Bars">
@@ -119,7 +118,6 @@
                                     </div>
                                 </div>
                                 <span class="fl">{{thrombolyticbenefit}}%</span>
-								<span class="fr">{{policyrisksectionVal}}</span><span class="fr">95%Cl &nbsp;&nbsp; </span>
                             </td>
                         </tr>
                     </thead>
@@ -237,7 +235,7 @@
         computed:{
             //溶栓出血风险及获益
             thrombolyticRisk:function () {
-               let risk= this.arr.thrombolytic_risk_benefit.risk.riskVal;
+               let risk= this.arr.thrombolytic_risk_benefit.riskVal;
                 if(risk&&risk.length>=2){
                     risk=risk;
                 }else{
@@ -245,17 +243,9 @@
                 }
                 return risk
             },
-            policyrisksectionVal:function () {
-               let risksectionVal= this.arr.thrombolytic_risk_benefit.risk.sectionVal;
-                if(risksectionVal&&risksectionVal.length>=2){
-                    risksectionVal=risksectionVal;
-                }else{
-                    risksectionVal= 0;
-                }
-                return risksectionVal
-            },
+            
              thrombolyticbenefit:function () {
-               let benefit= this.arr.thrombolytic_risk_benefit.benefit.riskVal;
+               let benefit= this.arr.thrombolytic_risk_benefit.profitVal;
                 if(benefit&&benefit.length>=2){
                     benefit=benefit;
                 }else{
@@ -263,15 +253,7 @@
                 }
                 return benefit
             },
-            policyrisksectionVal:function () {
-               let benefitsectionVal= this.arr.thrombolytic_risk_benefit.benefit.sectionVal;
-                if(benefitsectionVal&&benefitsectionVal.length>=2){
-                    benefitsectionVal=benefitsectionVal;
-                }else{
-                    benefitsectionVal= 0;
-                }
-                return benefitsectionVal
-            },
+        
             //溶栓决策支持概述
             policySICH:function () {
                let SICH= this.arr.thrombolytic_policy.SICH.riskVal;

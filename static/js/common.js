@@ -22,8 +22,6 @@ const config ={
 //  Emaildomain: "http://pro.dothealth.cn/util/FileUpload/sendMail?pid=" + id + "&suiji=" + suiji,
 }
 
-
-
 export { 
 	config 
   }

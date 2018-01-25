@@ -101,26 +101,26 @@
                 <x-table :cell-bordered="false" style="background-color:#fff;">
                     <thead>
                         <tr style="border:none">
-                            <th style="width:20%;line-height:24px;text-align:left;">预测TIA一年后的卒中风险<br>ABCD2-1评分：<span>{{arr.strokeScore}}</span></th>
+                            <th style="width:20%;line-height:24px;text-align:left;">预测TIA一年后的卒中风险<br>ABCD2-1评分：<span>{{risk_of_stroke.ABCD2_I.strokeScore}}</span></th>
                             <th style="width:80%;">
                                 <div class="Bar">
-                                    <div style="width: 50%;">
+                                    <div v-bind:style="{width: strokeRiskVal+'%'}">
                                     </div> 
                                 </div>
-								<span class="fl">50%</span>
-								<span class="fr"> 2.76-4.76</span><span class="fr">95%Cl &nbsp;&nbsp;</span>
+								<span class="fl">{{strokeRiskVal}}%</span>
+								<span class="fr"> {{strokeABCD}}</span><span class="fr">95%Cl &nbsp;&nbsp;</span>
                             </th>
                         </tr>
                         <tr >
-                            <td style="width:20%;line-height:24px;text-align:left;">复发风险<br>ESRS评分：<span>5</span></td>
+                            <td style="width:20%;line-height:24px;text-align:left;">复发风险<br>ESRS评分：<span>{{risk_of_stroke.ESRS.strokeScore}}</span></td>
                             <td style="width:80%">
                                 <div class="Bars">
-                                    <div style="width: 30%;">
+                                    <div v-bind:style="{width: strokeESRSRiskVal+'%'}">
                                         
                                     </div>
                                 </div>
-								<span class="fl">30%</span>
-								<span class="fr"> 56.82-61.83</span><span class="fr">95%Cl &nbsp;&nbsp;</span>
+								<span class="fl">{{strokeESRSRiskVal}}%</span>
+								<span class="fr"> {{strokeESRS}}</span><span class="fr">95%Cl &nbsp;&nbsp;</span>
                             </td>
                         </tr>
                     </thead>
@@ -147,8 +147,8 @@
 				patient_info:{},
 				diagnosis:{},
 				general_situation:{},
-				treat_plan:{}
-				
+				treat_plan:{},
+				risk_of_stroke:{},
 			}
 		},
 		created(){
@@ -175,6 +175,7 @@
 					that.diagnosis=response.data.diagnosis;
 					that.general_situation=response.data.general_situation;
 					that.treat_plan=response.data.treat_plan;
+					that.risk_of_stroke=response.data.risk_of_stroke;
 					this.$nextTick(function () {
 						// this.CerebralAxiosPost('CerebralAxiosPost');
 					})
@@ -212,25 +213,43 @@
 	},
 	computed:{
 		//卒中风险
-            policySICH:function () {
-               let SICH= this.arr.policy.SICH.riskVal;
-                let arr =SICH.split(":");
-                if(arr&&arr.length>=2){
-                    SICH=arr[1];
+		  strokeRiskVal:function () {
+               let riskVal= this.arr.risk_of_stroke.ABCD2_I.riskVal;
+                if(riskVal&&riskVal.length>=2){
+                    riskVal=riskVal;
                 }else{
-                    SICH= 0;
+                    riskVal= 0;
                 }
-                return SICH
+                return riskVal
             },
-            policySICHsectionVal:function () {
-               let SICHsectionVal= this.arr.policy.SICH.sectionVal;
-                let arr =SICHsectionVal.split(":");
-                if(arr&&arr.length>=2){
-                    SICHsectionVal=arr[1];
+            strokeESRSRiskVal:function () {
+               let ESRSRiskVal= this.arr.risk_of_stroke.ESRS.riskVal;
+                if(ESRSRiskVal&&ESRSRiskVal.length>=2){
+                    ESRSRiskVal=ESRSRiskVal;
                 }else{
-                    SICHsectionVal= 0;
+                    ESRSRiskVal= 0;
                 }
-                return SICHsectionVal
+                return ESRSRiskVal
+            },
+            strokeABCD:function () {
+               let ABCD= this.arr.risk_of_stroke.ABCD2_I.sectionVal;
+                let arr =ABCD.split(":");
+                if(arr&&arr.length>=2){
+                    ABCD=arr[1];
+                }else{
+                    ABCD= 0;
+                }
+                return ABCD
+            },
+            strokeESRS:function () {
+               let ESRS= this.arr.risk_of_stroke.ESRS.sectionVal;
+                let arr =ESRS.split(":");
+                if(arr&&arr.length>=2){
+                    ESRS=arr[1];
+                }else{
+                    ESRS= 0;
+                }
+                return ESRS
             },
 	}
 }
